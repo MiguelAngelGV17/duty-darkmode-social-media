@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    /* Primary */
+    --LimeGreen: hsl(163, 72%, 41%);
+    --BrightRed: hsl(356, 69%, 56%);
+
+    --Facebook: hsl(208, 92%, 53%);
+    --Twitter: hsl(203, 89%, 53%);
+    --Instagram: linear-gradient(90deg, rgba(253,196,104,1) 0%, rgba(223,73,150,1) 100%);
+    --YouTube: hsl(348, 97%, 39%);
+
+
+
+    /* Light theme */
+    --Toggle: linear-gradient(90deg, #378fe6 0%, #3eda82 100%);  
+
+    /* Light Theme */
+    --BG: hsl(0, 0%, 100%);
+    --To-BGPattern: hsl(225, 100%, 98%);
+    --BlueCar-BG: hsl(227, 47%, 96%);
+    --BlueCar-hover: hsl(227, 47%, 80%);
+    --Text-1: hsl(228, 12%, 44%);
+    --Text-2: hsl(230, 17%, 14%);
+
+    font-size: 14px;
+}
+
+body.dark_mode{
+      /* Dark theme */
+    --BG: hsl(230, 17%, 14%);
+    --To-BGPattern: hsl(232, 19%, 15%);
+    --BlueCar-BG: hsl(228, 28%, 20%);
+    --BlueCar-hover: hsl(228, 28%, 30%);
+    --Text-1: hsl(228, 34%, 66%);
+    --Text-2: hsl(0, 0%, 100%);
+
+    /* Dark theme */
+    --Toggle: linear-gradient(90deg, #378fe6 0%, #3eda82 100%);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {    
+    background-color: var(--BG);
+    color: var(--Text-2);
+    transition: background-color 1s, color 1s;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 10px 50px;
+    gap: 2rem;    
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--Text-1);
+    gap: 0.2rem;
+    padding-bottom: 1rem;
+}
+
+.cards_social,
+.cards_overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem 0;  
+    
+}
+
+.header p:nth-child(1),
+.container>p {
+    min-width: 375px;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.header p:nth-child(2) {
+    min-width: 375px;
+    color: var(--Text-1);
+    font-weight: bold;
+}
+
+.cards_social .card,
+.cards_overview .card {
+    border-radius: 3px;
+    background-color: var(--BlueCar-BG);
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: transform 0.5s, background-color 1s;
+    
+}
+.cards_social .card:hover,
+.cards_overview .card:hover{
+    transform:translateY(-5px);
+    background-color: var(--BlueCar-hover);
+}
+
+
+.cards_social .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cards_social .card::before{
+    content: '';
+    width: 100%;
+    height: 5px;
+    background-color: var(--Facebook);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.cards_social .card:nth-child(2)::before{
+    background-color: var(--Twitter);
+}
+
+.cards_social .card:nth-child(3)::before{
+    background: var(--Instagram);
+}
+
+.cards_social .card:nth-child(4)::before{
+    background-color: var(--YouTube);
+}
+
+.cards_social .card>p:nth-child(1),
+.cards_social .card>div p:nth-child(1),
+.cards_social .card>div p:nth-child(2),
+.cards_social .card>p:nth-child(3) {
+    display: flex;
+    align-items: center;
+}
+
+.cards_social .card>p:nth-child(1){
+    gap: 0.8rem;
+    color: var(--Text-1);
+    font-weight: bold;    
+}
+
+.cards_social .card>div p:nth-child(1) {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.cards_social .card>div p:nth-child(2) {
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    color: var(--Text-1);
+}
+
+.cards_social .card>p:nth-child(3) {
+    font-weight: bold;
+    gap: 0.5em;
+    color: var(--LimeGreen);
+}
+
+.cards_social .card:nth-child(4)>p:nth-child(3) {
+    color: var(--BrightRed);
+}
+
+
+.cards_overview .card {
+    padding: 1rem;
+}
+
+.cards_overview .card>p:nth-child(1),
+.cards_overview .card div,
+.cards_overview .card div p:nth-child(2){
+    display: flex;
+    align-items: center;
+}
+
+.cards_overview .card>p:nth-child(1) {
+    justify-content: space-between;
+    color: var(--Text-1);
+    font-weight: bold;
+}
+
+.cards_overview .card div {
+    justify-content: space-between;
+    padding-top: 1.5em;
+    font-weight: bold;
+}
+
+.cards_overview .card div p:nth-child(1) {
+    font-size: 2.5rem;
+}
+
+.cards_overview .card div p:nth-child(2) {
+    gap: 5px;
+    color: var(--LimeGreen);
+}
+
+.cards_overview>.card:nth-child(2) div p:nth-child(2),
+.cards_overview>.card:nth-child(7) div p:nth-child(2),
+.cards_overview>.card:nth-child(8) div p:nth-child(2) {
+    color: var(--BrightRed);
+}
+
+.container>div:nth-child(2) {
+    /* Boton Dark Mode */
+    display: flex;
+    align-items: center;
+    color: var(--Text-1);
+    font-weight: bold;
+    padding: 1rem 0;
+    justify-content: space-between;
+}
+
+.toggle{
+    display: inline;
+    width: 45px;
+    height: 20px;
+    border-radius: 20px;
+    background: var(--Toggle);
+    position: relative;
+}
+
+.slide_ball{
+    position: absolute;
+    top: 2px;
+    right: 25px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: var(--BlueCar-BG);
+    cursor: pointer;
+    transition: right 0.5s;
+}
+
+.move_ball{
+    right: 5px;
+}
+
+body >p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body >p,
+body>p a {
+    background-color: var(--Text-2);
+    color: var(--BG);
+    font-weight: bold;
+    padding: 2px 0;
+}
